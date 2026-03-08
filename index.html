@@ -9,6 +9,9 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* overflow-x on html instead of body — prevents iOS Safari from killing vertical scroll */
+  html { overflow-x: hidden; }
+
   body {
     background: linear-gradient(160deg, #ffe5c2 0%, #ffc999 50%, #ffb085 100%);
     font-family: 'Nunito', sans-serif;
@@ -18,7 +21,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    overflow-x: hidden;
+    padding-bottom: 40px;
   }
 
   h1 {
@@ -306,8 +309,8 @@
 
   /* ---- MOBILE / iOS SAFARI ---- */
   /* Fix iOS Safari 100vh including address bar */
-  html { height: -webkit-fill-available; }
-  body { min-height: -webkit-fill-available; }
+  html { height: -webkit-fill-available; overflow-x: hidden; }
+  body { min-height: -webkit-fill-available; overflow-y: auto; }
 
   /* Remove tap flash on iOS */
   * { -webkit-tap-highlight-color: transparent; }
