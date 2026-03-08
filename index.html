@@ -303,6 +303,68 @@
     pointer-events: none;
     z-index: 99;
   }
+
+  /* ---- MOBILE / iOS SAFARI ---- */
+  /* Fix iOS Safari 100vh including address bar */
+  html { height: -webkit-fill-available; }
+  body { min-height: -webkit-fill-available; }
+
+  /* Remove tap flash on iOS */
+  * { -webkit-tap-highlight-color: transparent; }
+
+  /* Prevent double-tap zoom on the steamer button */
+  #steamer-wrap { touch-action: manipulation; }
+  .btn          { touch-action: manipulation; }
+
+  @media (max-width: 640px) {
+    body {
+      padding: 16px 12px;
+      justify-content: flex-start;
+      padding-top: 24px;
+    }
+
+    h1 { font-size: 2rem; }
+    #subtitle { font-size: 0.9rem; margin-bottom: 10px; }
+
+    /* Stack steamer above table on mobile */
+    #start-screen {
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    #steamer-col { width: 100%; align-items: center; }
+
+    /* Scale steamer down to fit phone width */
+    #steamer-wrap {
+      width: 210px;
+      height: 230px;
+      transform-origin: top center;
+    }
+    #steamer-svg {
+      width: 210px !important;
+      height: 217px !important;
+    }
+    /* Re-centre the steam wisps for the smaller size */
+    .steam-wisp:nth-child(1) { left: 73px; }
+    .steam-wisp:nth-child(2) { left: 98px; }
+    .steam-wisp:nth-child(3) { left: 123px; }
+
+    /* Table goes full-width below the steamer */
+    #dumpling-table-wrap {
+      width: 100%;
+      max-width: 100%;
+      min-width: unset;
+    }
+
+    /* Smaller result dumpling */
+    #result-dumpling-wrap { width: 170px; height: 170px; }
+    #result-dumpling-svg  { width: 170px !important; height: 170px !important; }
+
+    #dumpling-name  { font-size: 1.5rem; }
+    #rarity-badge   { font-size: 1.05rem; padding: 7px 22px; }
+    .btn            { font-size: 1.1rem; padding: 12px 28px; }
+  }
 </style>
 </head>
 <body>
